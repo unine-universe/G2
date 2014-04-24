@@ -21,7 +21,8 @@ body{
 	top: 0px;
 	left: 8%;
 	width: 80%;
-	height: 130%;
+	min-height:100%;
+	height: auto;
 }
 .user{
 	padding-right:1%;
@@ -243,6 +244,7 @@ body{
 .onglet1{
 	float: left;
 	background-color:#FFF;
+	opacity:0.75;
 	border-left:solid 2px  #0881A5;
 	border-top:solid 2px  #0881A5;
 	border-right:solid 2px  #0881A5;
@@ -276,6 +278,7 @@ body{
 	position:relative;
 	border: solid 2px  #0881A5;
 	background-color:#FFF;
+	opacity:0.75;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -310,6 +313,22 @@ body{
 	padding-bottom: 20px;
 	position: relative;
 	bottom: 20px;
+}
+table, th, td
+{
+border: 1px solid black;
+width:90%;
+margin-left:5%;
+
+}
+.Annonce_Description{
+	
+}
+img.Article{
+	
+	position:relative;
+	height:100%;
+	width:100%;
 }
 
 .band{

@@ -33,7 +33,7 @@ class Compte(object):
             db = openDB()
             cursor = db.cursor()
             # Annonces
-            cursor.execute("SELECT * FROM annonce WHERE publisher='{0}'".format(user))
+            cursor.execute("SELECT * FROM annonce AS a INNER JOIN category AS c USING (id)  WHERE publisher='{0}'AND a.state = 'online'".format(user))
             annonces_user = cursor.fetchall() # prendre tous les annonces
             # Pictures
             pictures = {}
@@ -50,9 +50,27 @@ class Compte(object):
         else:
             return "<h1>Indiquez l'utilisateur ?user=username</h1>"
         
-    def annoncesArchives(self):
-        # Charger et compléter le template HTML
-        return self.env.get_template('mesAnnoncesArchives.html').render()
+    def annoncesArchives(self, user=None):
+        if user:
+            db = openDB()
+            cursor = db.cursor()
+            # Annonces
+            cursor.execute("SELECT * FROM annonce AS a INNER JOIN category AS c USING (id)  WHERE publisher='{0}'AND a.state = 'archive'".format(user))
+            annonces_user = cursor.fetchall() # prendre tous les annonces
+            # Pictures
+            pictures = {}
+            for a in annonces_user:
+                cursor.execute("SELECT pict FROM picture WHERE a_id='{0}'".format(a[0]))
+                pictures[a[0]] = cursor.fetchall()
+            cursor.close()
+            db.close()
+            if annonces_user:
+                # Charger et compléter le template HTML
+                return self.env.get_template('mesAnnoncesArchives.html').render(annonces = annonces_user, pics = pictures)
+            else:
+                return "<h1>Erreur, utilisateur inexistant ou vous n'avez pas de droits.</h1>"
+        else:
+            return "<h1>Indiquez l'utilisateur ?user=username</h1>"
     
     def favoris(self):
         # Charger et compléter le template HTML

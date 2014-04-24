@@ -21,9 +21,8 @@ body{
 	top: 0px;
 	left: 8%;
 	width: 80%;
-	height: 130%;
+	height: auto;
 }
-
 .user{
 	padding-right:1%;
 	background-color:#0881A5;
@@ -94,7 +93,7 @@ body{
 	position:absolute;
 	z-index: 10;
 	right: 80%;
-	top: 25%;
+	top: 30%;
 }
 .hyperlien1:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #FFF), color-stop(1, #FFF) );
@@ -140,7 +139,7 @@ body{
 	position:absolute;
 	z-index: 10;
 	right: 80%;
-	top: 30%;
+	top: 35%;
 }
 .hyperlien2:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
@@ -184,7 +183,7 @@ body{
 	position:absolute;
 	z-index: 10;
 	right: 80%;
-	top: 35%;
+	top: 40%;
 }
 .hyperlien3:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
@@ -230,7 +229,7 @@ body{
 	position:absolute;
 	z-index: 10;
 	right: 80%;
-	top: 40%;
+	top: 45%;
 }
 .hyperlien4:hover {
 	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #fb9e25), color-stop(1, #ffc477) );
@@ -244,6 +243,7 @@ body{
 .onglet1{
 	float: left;
 	background-color:#FFF;
+	opacity:0.75;
 	border-left:solid 2px  #0881A5;
 	border-top:solid 2px  #0881A5;
 	border-right:solid 2px  #0881A5;
@@ -277,6 +277,7 @@ body{
 	position:relative;
 	border: solid 2px  #0881A5;
 	background-color:#FFF;
+	opacity:0.75;
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -311,6 +312,22 @@ body{
 	padding-bottom: 20px;
 	position: relative;
 	bottom: 20px;
+}
+table, th, td
+{
+border: 1px solid black;
+width:90%;
+margin-left:5%;
+
+}
+.Annonce_Description{
+	
+}
+img.Article{
+	
+	position:relative;
+	height:100%;
+	width:100%;
 }
 
 .band{

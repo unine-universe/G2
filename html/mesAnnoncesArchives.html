@@ -21,9 +21,11 @@
         <script src="/js/main.js"></script>
         
 <div class="content">
+	{% for a in annonces %}
 		<div class="user">
-        	Connecté en tant que: "user" | Logout
+        	Connecté en tant que: "{{ a[2] }}" | <a href='/'> Logout </a>
   		</div>
+  	{% endfor %}
         
     	<div class="logo">
     		<img src="/img/Logo-unine.png" alt="Unine Logo"/>
@@ -69,9 +71,37 @@
             	Vous avez actuellement 1 archive(s):
             </div>
             <div class="sub_box2">
-            	Exemple
+            	Type  Title  Price 	Category 
             	<hr>
-           		<br>
+            	{% for a in annonces %}
+           		<table>
+           			<tr>
+           				<td>
+           					<dl>
+           						<dt>{{ a[5] }}</dt><br>
+           						<dt>{{ a[6] }}</dt><br>
+           						<dt>Prix: {{ a[7] }} CHF {{ a[8]}}</dt><br>
+           						<dt>Publié par: {{ a[2] }}</dt><br>
+           						<dt>Contacte: {{ a[16] }} </dt><br>
+           						<dt>Adresse:{{ a[12] }}, {{ a[13] }}, {{ a[14] }}</dt><br>
+           						<dt>Faculté: {{ a[4] }}</dt><br>
+           						<dt>Catégorie: {{ a[18] }} </dt><br>
+           					
+           					</dl>
+           				</td>
+           	
+           				<td>
+           					{% for pic in pics[a[0]] %}
+           					
+           						<dl><dt><a target="blank" href="{{pic[0]}}"><img class="Article" src="{{ pic[0] }}"/></a></dt></dl>
+           						
+           					{% endfor %}
+           				</td>
+           				
+           			</tr>
+           	
+           		</table>
+           		{% endfor %}
             </div>
        </div>
        

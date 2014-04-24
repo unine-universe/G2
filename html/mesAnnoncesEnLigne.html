@@ -20,9 +20,11 @@
         <script src="/js/main.js"></script>
         
 <div class="content">
+		{% for a in annonces %}
 		<div class="user">
-        	Connecté en tant que: "user" | Logout
+        	Connecté en tant que: "{{ a[2] }}" | <a href='/'> Logout </a>
   		</div>
+  		{% endfor %}
         
     	<div class="logo">
     		<img src="/img/Logo-unine.png" alt="Unine Logo"/>
@@ -61,23 +63,38 @@
             <div class="sub_box1">
             Vous avez actuellement 1 annonce(s) en ligne:
             </div>
-            <div class="sub_box2">
-            {% for a in annonces %}
-            <div>
-            		<table>
-            		<tr><td>Type</td><td>{{ a[1] }}</td></tr>
-            		<tr><td>Catégorie</td><td>{{ a[3] }}</td></tr>
-            		<tr><td>Faculté</td><td>{{ a[4] }}</td></tr>
-            		<tr><td>Titre</td><td><strong>{{ a[5] }}</strong></td></tr>
-            		<tr><td>Description</td><td>{{ a[6] }}</td></tr>
-            		<tr><td>Prix</td><td>{{ a[7] }}</td></tr>
-            		{% for pic in pics[a[0]] %}
-            			<tr><td colspan="2"><img src="{{ pic[0] }}"/></td></tr>
-            		{% endfor %}
-            		</table>
-            </div>
-            <hr>
-            {% endfor %}
+             <div class="sub_box2">
+            	Type  Title  Price 	Category 
+            	<hr>
+            	{% for a in annonces %}
+           		<table>
+           			<tr>
+           				<td>
+           					<dl>
+           						<dt>{{ a[5] }}</dt><br>
+           						<dt>{{ a[6] }}</dt><br>
+           						<dt>Prix: {{ a[7] }} CHF {{ a[8]}}</dt><br>
+           						<dt>Publié par: {{ a[2] }}</dt><br>
+           						<dt>Contacte: {{ a[16] }} </dt><br>
+           						<dt>Adresse:{{ a[12] }}, {{ a[13] }}, {{ a[14] }}</dt><br>
+           						<dt>Faculté: {{ a[4] }}</dt><br>
+           						<dt>Catégorie: {{ a[18] }} </dt><br>
+           					
+           					</dl>
+           				</td>
+           	
+           				<td>
+           					{% for pic in pics[a[0]] %}
+           					
+           						<dl><dt><a target="blank" href="{{pic[0]}}"><img class="Article" src="{{ pic[0] }}"/></a></dt></dl>
+           						
+           					{% endfor %}
+           				</td>
+           				
+           			</tr>
+           	
+           		</table>
+           		{% endfor %}
             </div>
        </div>
        
